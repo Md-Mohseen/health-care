@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CarePlus — Modern Healthcare</title>
+  <meta name="description" content="CarePlus is a modern, fully responsive healthcare website template built with HTML, Tailwind CSS, and vanilla JavaScript." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind custom config (in-CDN)
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'ui-sans-serif', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial'] },
+          colors: {
+            primary: {
+              50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8',
+              500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e'
+            },
+            accent: {
+              50: '#f5fff7', 100: '#e9ffef', 200: '#caffd6', 300: '#9fffb6', 400: '#61f289',
+              500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d'
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 25px rgba(2, 132, 199, 0.15)'
+          }
+        }
+      },
+      darkMode: ['class']
+    }
+  </script>
+  <style>
+   
+  </style>
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:bg-primary-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+  <!-- Top bar -->
+  <div class="bg-primary-600 text-white text-sm hidden md:block">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-2 flex items-center justify-between">
+      <div class="space-x-6">
+        <span class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 8.25l9.75-6 9.75 6v7.5a3 3 0 01-3 3h-13.5a3 3 0 01-3-3v-7.5z"/></svg> 24/7 Emergency: <strong class="font-semibold">+880-1234-567890</strong></span>
+        <span class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75l8.954 4.477a2.25 2.25 0 002.012 0L22.125 6.75m-19.875 10.5h19.5A2.25 2.25 0 0024 15V9a2.25 2.25 0 00-2.25-2.25H2.25A2.25 2.25 0 000 9v6a2.25 2.25 0 002.25 2.25z"/></svg> support@careplus.health</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" class="inline-flex items-center gap-2 text-white/90 hover:text-white" aria-label="Toggle dark mode">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.752 15.002A9.718 9.718 0 0112 21.75 9.75 9.75 0 1112 2.25c.34 0 .675.02 1.006.058a7.5 7.5 0 108.746 12.694z"/></svg>
+          <span class="hidden lg:inline">Theme</span>
+        </button>
+        <a href="#appointment" class="px-3 py-1.5 rounded-full bg-white/10 border border-white/20 hover:bg-white/20">Book Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200 dark:bg-slate-900/70 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-3">
+        <a href="#" class="flex items-center gap-2 font-extrabold text-xl text-primary-700 dark:text-primary-300">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-4.97 0-9 4.03-9 9 0 4.34 3.07 7.97 7.12 8.82v1.43c0 .98 1.18 1.47 1.87.78l1.7-1.7c4.66-.5 8.31-4.46 8.31-9.33 0-4.97-4.03-9-9-9z"/></svg>
+          CarePlus
+        </a>
+        <nav class="hidden lg:flex items-center gap-6 font-medium">
+          <a href="#services" class="hover:text-primary-600">Services</a>
+          <a href="#specialties" class="hover:text-primary-600">Specialties</a>
+          <a href="#doctors" class="hover:text-primary-600">Doctors</a>
+          <a href="#pricing" class="hover:text-primary-600">Pricing</a>
+          <a href="#blog" class="hover:text-primary-600">Blog</a>
+          <a href="#contact" class="hover:text-primary-600">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#appointment" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary-600 text-white hover:bg-primary-700 shadow-soft">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3M4 11h16M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Book Appointment
+          </a>
+          <button id="mobileBtn" class="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-700" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+            <svg id="menuIcon" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+            <svg id="closeIcon" class="w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden lg:hidden pb-4" role="region">
+        <nav class="grid gap-2 text-base">
+          <a href="#services" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Services</a>
+          <a href="#specialties" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Specialties</a>
+          <a href="#doctors" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Doctors</a>
+          <a href="#pricing" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Pricing</a>
+          <a href="#blog" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Blog</a>
+          <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+          <a href="#appointment" class="mt-1 px-3 py-2 rounded-xl bg-primary-600 text-white hover:bg-primary-700">Book Appointment</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-primary-50 to-white dark:from-slate-800/40 dark:to-slate-900"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pt-12 md:pt-20 pb-16 md:pb-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-200">
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6l4 2"/></svg>
+          Fast. Caring. 24/7.
+        </span>
+        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">Your health, our priority — <span class="text-primary-600">CarePlus</span></h1>
+        <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">Book appointments, consult online, order medicines, and access trusted health information — all in one place.</p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <a href="#appointment" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary-600 text-white hover:bg-primary-700 shadow-soft">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6l4 2"/></svg>
+            Book an Appointment
+          </a>
+          <a href="#services" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
+            Explore Services
+          </a>
+        </div>
+        <!-- Search -->
+        <div class="mt-8 relative max-w-xl">
+          <input id="symptomSearch" type="text" placeholder="Search symptoms, doctors, specialties..." class="w-full px-5 py-3 pr-12 rounded-2xl border border-slate-300/80 bg-white/80 backdrop-blur placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-primary-100 focus:border-primary-500 dark:bg-slate-800/70 dark:border-slate-700" />
+          <button id="searchBtn" class="absolute right-1 top-1 bottom-1 rounded-xl pl-6 pr-6 pt-0 h-[40px] bg-primary-600 text-white hover:bg-primary-700" aria-label="Search">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+          </button>
+          <p id="searchHint" class="mt-2 text-sm text-slate-500 dark:text-slate-400">Try “Dermatology”, “Diabetes”, "Dr. Ayesha" ...</p>
+        </div>
+
+        <!-- Stats -->
+        <dl class="mt-10 grid grid-cols-3 gap-6">
+          <div class="p-4 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-center">
+            <dt class="text-sm text-slate-500">Happy Patients</dt>
+            <dd class="mt-1 text-2xl font-bold" data-counter="128000">128k+</dd>
+          </div>
+          <div class="p-4 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-center">
+            <dt class="text-sm text-slate-500">Top Doctors</dt>
+            <dd class="mt-1 text-2xl font-bold" data-counter="350">350+</dd>
+          </div>
+          <div class="p-4 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 text-center">
+            <dt class="text-sm text-slate-500">Cities Covered</dt>
+            <dd class="mt-1 text-2xl font-bold" data-counter="40">40+</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="relative">
+        <img src="img/Doctor.jpg" alt="Doctors team" class="rounded-3xl shadow-2xl w-full aspect-[4/3] object-cover" />
+        <!-- <div class="absolute -bottom-6 -left-6 md:-left-10 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 shadow-soft">
+          <p class="text-sm text-slate-500">Next available</p>
+          <p class="font-semibold">Online Consultation</p>
+          <p class="text-sm text-primary-600">Today, 2:00 PM</p>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold">Comprehensive Care</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">From appointments to diagnostics — everything under one roof.</p>
+        </div>
+        <a href="#" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 hover:bg-white dark:border-slate-700 dark:hover:bg-slate-800">View all</a>
+      </div>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card -->
+        <article class="card-hover p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+          <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8"/></svg>
+          </div>
+          <h3 class="mt-4 font-bold text-lg">Online Consultation</h3>
+          <p class="mt-1 text-slate-600 dark:text-slate-300">Video calls with specialists across 30+ disciplines.</p>
+          <a href="#appointment" class="mt-4 inline-block text-primary-600 hover:underline">Book now →</a>
+        </article>
+
+        <article class="card-hover p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+          <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="mt-4 font-bold text-lg">Diagnostics</h3>
+          <p class="mt-1 text-slate-600 dark:text-slate-300">Lab tests, imaging, and reports with home sample collection.</p>
+          <a href="#" class="mt-4 inline-block text-primary-600 hover:underline">Browse tests →</a>
+        </article>
+
+        <article class="card-hover p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+          <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.5 3.75h9a1.5 1.5 0 011.5 1.5v13.5a1.5 1.5 0 01-1.5 1.5h-9a1.5 1.5 0 01-1.5-1.5V5.25a1.5 1.5 0 011.5-1.5zM9 8.25h6"/></svg>
+          </div>
+          <h3 class="mt-4 font-bold text-lg">Pharmacy</h3>
+          <p class="mt-1 text-slate-600 dark:text-slate-300">Order medicines with verified suppliers and fast delivery.</p>
+          <a href="#" class="mt-4 inline-block text-primary-600 hover:underline">Shop meds →</a>
+        </article>
+
+        <article class="card-hover p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+          <div class="w-12 h-12 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.59 14.37a2 2 0 10-2.83-2.83L3.5 20.79V23h2.21l9.88-8.63z"/></svg>
+          </div>
+          <h3 class="mt-4 font-bold text-lg">Wellness Programs</h3>
+          <p class="mt-1 text-slate-600 dark:text-slate-300">Nutrition, fitness, and mental health with guided plans.</p>
+          <a href="#" class="mt-4 inline-block text-primary-600 hover:underline">Explore plans →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialties Tabs -->
+  <section id="specialties" class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="md:flex items-end justify-between gap-6">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold">Top Specialties</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Trusted experts across key healthcare areas.</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex flex-wrap gap-2" role="tablist">
+          <button class="spec-tab active px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700" data-target="cardio">Cardiology</button>
+          <button class="spec-tab px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700" data-target="derma">Dermatology</button>
+          <button class="spec-tab px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700" data-target="pedia">Pediatrics</button>
+          <button class="spec-tab px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700" data-target="ortho">Orthopedics</button>
+        </div>
+      </div>
+
+      <!-- Panels -->
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="spec-panel" id="cardio">
+          <article class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover h-full">
+            <h3 class="font-bold text-lg">Heart Checkups</h3>
+            <p class="mt-1 text-slate-600 dark:text-slate-300">Comprehensive ECG, ECHO, and lipid profiling with risk assessment.</p>
+            <a class="mt-3 inline-flex items-center gap-2 text-primary-600" href="#appointment">Book a cardiologist →</a>
+          </article>
+        </div>
+        <div class="spec-panel hidden" id="derma">
+          <article class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover h-full">
+            <h3 class="font-bold text-lg">Skin & Hair</h3>
+            <p class="mt-1 text-slate-600 dark:text-slate-300">Advanced acne control, hair loss treatments, and cosmetic dermatology.</p>
+            <a class="mt-3 inline-flex items-center gap-2 text-primary-600" href="#appointment">Consult a dermatologist →</a>
+          </article>
+        </div>
+        <div class="spec-panel hidden" id="pedia">
+          <article class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover h-full">
+            <h3 class="font-bold text-lg">Child Care</h3>
+            <p class="mt-1 text-slate-600 dark:text-slate-300">Vaccinations, growth tracking, and common illness management.</p>
+            <a class="mt-3 inline-flex items-center gap-2 text-primary-600" href="#appointment">Meet a pediatrician →</a>
+          </article>
+        </div>
+        <div class="spec-panel hidden" id="ortho">
+          <article class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover h-full">
+            <h3 class="font-bold text-lg">Bones & Joints</h3>
+            <p class="mt-1 text-slate-600 dark:text-slate-300">Injury care, arthritis relief, and sports medicine programs.</p>
+            <a class="mt-3 inline-flex items-center gap-2 text-primary-600" href="#appointment">Find an orthopedist →</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctors -->
+  <section id="doctors" class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold">Meet Our Doctors</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Experienced, compassionate, and patient-first.</p>
+        </div>
+        <div class="hidden md:flex items-center gap-2">
+          <button id="docPrev" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700" aria-label="previous">◀</button>
+          <button id="docNext" class="p-2 rounded-lg border border-slate-300 dark:border-slate-700" aria-label="next">▶</button>
+        </div>
+      </div>
+
+      <div id="doctorCarousel" class="mt-8 flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+        <!-- Doctor Card Template -->
+        <div class="min-w-[280px] max-w-sm snap-start p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover">
+          <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1550831107-1553da8c8464?q=80&w=1200&auto=format&fit=crop" alt="Doctor"/>
+          <h3 class="mt-4 font-bold">Dr. Ayesha Rahman</h3>
+          <p class="text-sm text-slate-500">Cardiologist • 12 yrs</p>
+          <div class="mt-3 flex items-center justify-between">
+            <span class="text-sm">⭐ 4.9 (1.2k)</span>
+            <a href="#appointment" class="text-primary-600 hover:underline">Book</a>
+          </div>
+        </div>
+        <div class="min-w-[280px] max-w-sm snap-start p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover">
+          <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=1200&auto=format&fit=crop" alt="Doctor"/>
+          <h3 class="mt-4 font-bold">Dr. Imran Hossain</h3>
+          <p class="text-sm text-slate-500">Dermatologist • 9 yrs</p>
+          <div class="mt-3 flex items-center justify-between">
+            <span class="text-sm">⭐ 4.8 (980)</span>
+            <a href="#appointment" class="text-primary-600 hover:underline">Book</a>
+          </div>
+        </div>
+        <div class="min-w-[280px] max-w-sm snap-start p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover">
+          <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=1200&auto=format&fit=crop" alt="Doctor"/>
+          <h3 class="mt-4 font-bold">Dr. Nusrat Jahan</h3>
+          <p class="text-sm text-slate-500">Pediatrician • 14 yrs</p>
+          <div class="mt-3 flex items-center justify-between">
+            <span class="text-sm">⭐ 5.0 (2.1k)</span>
+            <a href="#appointment" class="text-primary-600 hover:underline">Book</a>
+          </div>
+        </div>
+        <div class="min-w-[280px] max-w-sm snap-start p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover">
+          <img class="w-full h-44 object-cover rounded-xl" src="img/farhan.jpg" alt="Doctor"/>
+          <h3 class="mt-4 font-bold">Dr. Farhan Ahmed</h3>
+          <p class="text-sm text-slate-500">Orthopedic • 10 yrs</p>
+          <div class="mt-3 flex items-center justify-between">
+            <span class="text-sm">⭐ 4.7 (740)</span>
+            <a href="#appointment" class="text-primary-600 hover:underline">Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment -->
+  <section id="appointment" class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold">Book an Appointment</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Select your specialty, preferred doctor, and convenient time. We'll confirm instantly.</p>
+          <ul class="mt-6 space-y-3 text-slate-700 dark:text-slate-300">
+            <li class="flex items-start gap-3"><span class="text-primary-600">✔</span> Same‑day slots for online & in‑clinic.</li>
+            <li class="flex items-start gap-3"><span class="text-primary-600">✔</span> Insurance support & secure payments.</li>
+            <li class="flex items-start gap-3"><span class="text-primary-600">✔</span> Reminders via SMS, WhatsApp & email.</li>
+          </ul>
+        </div>
+        <form id="apptForm" class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 shadow-soft">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm mb-1" for="fullName">Full Name</label>
+              <input id="fullName" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" placeholder="e.g., Md. Mohseen" required />
+            </div>
+            <div>
+              <label class="block text-sm mb-1" for="phone">Phone</label>
+              <input id="phone" type="tel" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" placeholder="e.g., +8801XXXXXXXXX" required />
+            </div>
+            <div>
+              <label class="block text-sm mb-1" for="specialty">Specialty</label>
+              <select id="specialty" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" required>
+                <option value="">Choose...</option>
+                <option>Cardiology</option>
+                <option>Dermatology</option>
+                <option>Pediatrics</option>
+                <option>Orthopedics</option>
+                <option>General Medicine</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm mb-1" for="doctor">Doctor</label>
+              <select id="doctor" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" required>
+                <option value="">Any available</option>
+                <option>Dr. Ayesha Rahman</option>
+                <option>Dr. Imran Hossain</option>
+                <option>Dr. Nusrat Jahan</option>
+                <option>Dr. Farhan Ahmed</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm mb-1" for="date">Date</label>
+              <input id="date" type="date" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" required />
+            </div>
+            <div>
+              <label class="block text-sm mb-1" for="time">Time</label>
+              <input id="time" type="time" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" required />
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-sm mb-1" for="notes">Notes (optional)</label>
+              <textarea id="notes" rows="3" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" placeholder="Describe symptoms or preferences"></textarea>
+            </div>
+          </div>
+          <div class="mt-6 flex items-center justify-between">
+            <label class="inline-flex items-center gap-2 text-sm">
+              <input id="online" type="checkbox" class="rounded border-slate-300 dark:border-slate-700" /> Online consultation
+            </label>
+            <button type="submit" class="px-5 py-3 rounded-xl bg-primary-600 text-white hover:bg-primary-700">Confirm Booking</button>
+          </div>
+          <p id="formMsg" class="mt-3 text-sm"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-extrabold">Simple, transparent pricing</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Pay as you go, or save more with plans.</p>
+      </div>
+      <div class="mt-10 grid lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover">
+          <h3 class="text-xl font-bold">Basic</h3>
+          <p class="text-sm text-slate-500">Great for single visits</p>
+          <div class="mt-4 text-4xl font-extrabold">৳499</div>
+          <ul class="mt-4 space-y-2 text-slate-700 dark:text-slate-300">
+            <li>✔ Online consultation</li>
+            <li>✔ E‑prescription</li>
+            <li>— Priority support</li>
+          </ul>
+          <a href="#appointment" class="mt-6 inline-block w-full text-center px-4 py-3 rounded-xl bg-primary-600 text-white hover:bg-primary-700">Get started</a>
+        </div>
+        <div class="relative p-6 rounded-2xl bg-white border-2 border-primary-600 dark:bg-slate-800 dark:border-primary-500 card-hover">
+          <span class="absolute -top-3 right-4 px-3 py-1 rounded-full text-xs bg-primary-600 text-white">Popular</span>
+          <h3 class="text-xl font-bold">Plus</h3>
+          <p class="text-sm text-slate-500">Best for families</p>
+          <div class="mt-4 text-4xl font-extrabold">৳1,299</div>
+          <ul class="mt-4 space-y-2 text-slate-700 dark:text-slate-300">
+            <li>✔ Unlimited chats</li>
+            <li>✔ 3 video consults</li>
+            <li>✔ Discounts on tests</li>
+          </ul>
+          <a href="#appointment" class="mt-6 inline-block w-full text-center px-4 py-3 rounded-xl bg-primary-600 text-white hover:bg-primary-700">Choose Plus</a>
+        </div>
+        <div class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover">
+          <h3 class="text-xl font-bold">Enterprise</h3>
+          <p class="text-sm text-slate-500">For organizations</p>
+          <div class="mt-4 text-4xl font-extrabold">Custom</div>
+          <ul class="mt-4 space-y-2 text-slate-700 dark:text-slate-300">
+            <li>✔ Employee health plans</li>
+            <li>✔ On‑site camps</li>
+            <li>✔ Dedicated account manager</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block w-full text-center px-4 py-3 rounded-xl border border-slate-300 hover:bg-white dark:border-slate-700 dark:hover:bg-slate-800">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog / Articles -->
+  <section id="blog" class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold">Health Guides</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">Evidence‑based tips for everyday wellness.</p>
+        </div>
+        <a href="#" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-300 hover:bg-white dark:border-slate-700 dark:hover:bg-slate-800">See all posts</a>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <article class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover h-full">
+          <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?q=80&w=1200&auto=format&fit=crop" alt="Heart health"/>
+          <h3 class="mt-4 font-bold text-lg">Understanding blood pressure</h3>
+          <p class="mt-1 text-slate-600 dark:text-slate-300">Know your numbers and how lifestyle changes impact heart health.</p>
+          <a href="#" class="mt-3 inline-flex items-center gap-1 text-primary-600">Read more →</a>
+        </article>
+        <article class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover h-full">
+          <img class="w-full h-44 object-cover rounded-xl" src="img/clean.webp" alt="Skincare"/>
+          <h3 class="mt-4 font-bold text-lg">Clear skin basics</h3>
+          <p class="mt-1 text-slate-600 dark:text-slate-300">Derm‑approved routine for acne‑prone and sensitive skin.</p>
+          <a href="#" class="mt-3 inline-flex items-center gap-1 text-primary-600">Read more →</a>
+        </article>
+        <article class="p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 card-hover h-full">
+          <img class="w-full h-44 object-cover rounded-xl" src="https://images.unsplash.com/photo-1535914254981-b5012eebbd15?q=80&w=1200&auto=format&fit=crop" alt="Healthy food"/>
+          <h3 class="mt-4 font-bold text-lg">Nutrition that works</h3>
+          <p class="mt-1 text-slate-600 dark:text-slate-300">Simple meal strategies for energy, weight, and longevity.</p>
+          <a href="#" class="mt-3 inline-flex items-center gap-1 text-primary-600">Read more →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900">
+    <div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Frequently Asked Questions</h2>
+      <div class="mt-8 space-y-4">
+        <details class="group p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+          <summary class="flex cursor-pointer items-center justify-between font-semibold">How do online consultations work?
+            <span class="ml-4 transition-transform group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-slate-600 dark:text-slate-300">Book a slot, receive a video link by SMS/Email, join from any device, and get a digital prescription afterward.</p>
+        </details>
+        <details class="group p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+          <summary class="flex cursor-pointer items-center justify-between font-semibold">Can I claim insurance?
+            <span class="ml-4 transition-transform group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-slate-600 dark:text-slate-300">Yes, we support major insurers. Upload your policy details during booking or at the clinic front desk.</p>
+        </details>
+        <details class="group p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+          <summary class="flex cursor-pointer items-center justify-between font-semibold">Are prescriptions valid at pharmacies?
+            <span class="ml-4 transition-transform group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-slate-600 dark:text-slate-300">Absolutely. Our prescriptions include QR verification and are accepted at partner pharmacies nationwide.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold">Get in Touch</h2>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Questions, partnerships, or corporate plans — we’d love to help.</p>
+        <div class="mt-6 space-y-3">
+          <p class="flex items-center gap-3"><span class="w-9 h-9 rounded-xl bg-primary-100 text-primary-700 inline-flex items-center justify-center">📍</span> 12th Floor, Health Tower, Dhaka 1212</p>
+          <p class="flex items-center gap-3"><span class="w-9 h-9 rounded-xl bg-primary-100 text-primary-700 inline-flex items-center justify-center">✉️</span> support@careplus.health</p>
+          <p class="flex items-center gap-3"><span class="w-9 h-9 rounded-xl bg-primary-100 text-primary-700 inline-flex items-center justify-center">📞</span> +880-1234-567890</p>
+        </div>
+        <form id="contactForm" class="mt-6 grid sm:grid-cols-2 gap-4 p-6 rounded-2xl bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700">
+          <input class="px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" placeholder="Your name" required />
+          <input type="email" class="px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" placeholder="Email address" required />
+          <textarea class="sm:col-span-2 px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" rows="4" placeholder="Message"></textarea>
+          <button class="sm:col-span-2 px-5 py-3 rounded-xl bg-primary-600 text-white hover:bg-primary-700" type="submit">Send message</button>
+          <p id="contactMsg" class="sm:col-span-2 text-sm"></p>
+        </form>
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 min-h-[360px]">
+        <iframe title="Map" class="w-full h-full min-h-[360px]" referrerpolicy="no-referrer-when-downgrade" loading="lazy" src="https://www.google.com/maps?q=Dhaka&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12 grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-2 font-extrabold text-xl text-primary-700 dark:text-primary-300">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4.97 0-9 4.03-9 9 0 4.34 3.07 7.97 7.12 8.82v1.43c0 .98 1.18 1.47 1.87.78l1.7-1.7c4.66-.5 8.31-4.46 8.31-9.33 0-4.97-4.03-9-9-9z"/></svg>
+          CarePlus
+        </div>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Your trusted partner for accessible, high‑quality healthcare.</p>
+      </div>
+      <div>
+        <h4 class="font-bold">Company</h4>
+        <ul class="mt-3 space-y-2 text-slate-600 dark:text-slate-300">
+          <li><a href="#" class="hover:underline">About</a></li>
+          <li><a href="#" class="hover:underline">Careers</a></li>
+          <li><a href="#" class="hover:underline">Press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold">Resources</h4>
+        <ul class="mt-3 space-y-2 text-slate-600 dark:text-slate-300">
+          <li><a href="#faq" class="hover:underline">Help Center</a></li>
+          <li><a href="#blog" class="hover:underline">Health Guides</a></li>
+          <li><a href="#" class="hover:underline">Privacy & Terms</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold">Subscribe</h4>
+        <form id="newsForm" class="mt-3 flex gap-2">
+          <input type="email" required placeholder="Email address" class="flex-1 px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900" />
+          <button class="px-4 py-3 rounded-xl bg-primary-600 text-white hover:bg-primary-700">Join</button>
+        </form>
+        <p id="newsMsg" class="mt-2 text-sm"></p>
+      </div>
+    </div>
+    <div class="border-t border-slate-200 dark:border-slate-800 py-6 text-center text-sm text-slate-500">
+      © <span id="year"></span> CarePlus. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backTop" class="fixed bottom-6 right-6 p-3 rounded-full bg-primary-600 text-white shadow-lg hidden" aria-label="Back to top">↑</button>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-xl bg-slate-900 text-white text-sm shadow-2xl hidden"></div>
+
+  <script src="script.js">
+   
+  </script>
+</body>
+</html>
